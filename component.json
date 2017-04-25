@@ -10,5 +10,16 @@
         "note": "Comma-separated values like `riak-test:10017,riak-test2:10027`"
       }
     }
+  },
+  "actions": {
+    "createObject": {
+      "title": "Create Object",
+      "main": "./lib/actions/createObject.js",
+      "description": "Description for Create Object",
+      "metadata": {
+        "in": "./lib/schemas/createObject.in.json",
+        "out": "./lib/schemas/createObject.out.json"
+      }
+    }
   }
 }
