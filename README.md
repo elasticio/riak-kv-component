@@ -14,30 +14,53 @@ We&#39;ll use git and SSH public key authentication to upload your component cod
 
 &gt; If you fail to upload you SSH Key you will get **permission denied** error during the deployment.
 
-## Getting Started
-
-After registration and uploading of your SSH Key you can proceed to deploy it into our system. At this stage we suggest you to:
-* [Create a team](http://docs.elastic.io/docs/teams) to work on your new component. This is not required but will be automatically created using random naming by our system so we suggest you name your team accordingly.
-* [Create a repository](http://docs.elastic.io/docs/component-repositories) where your new component is going to *reside* inside the team that you have just created.
-
-Now as you have a team name and component repository name you can add a new git remote where code shall be pushed to. It is usually displayed on the empty repository page:
-
-```bash
-$ git remote add elasticio your-team@git.elastic.io:your-repository.git
-```
-
-Obviously the naming of your team and repository is entirely upto you and if you do not put any corresponding naming our system will auto generate it for you but the naming might not entirely correspond to your project requirements.
-Now we are ready to push it:
-
-```bash
-$ git push elasticio master
-```
-
 ## Authentication
 
 Connection to Riak cluster is established based on the comma-separated list of nodes
 
 ``server-one:1234,server-two:1234,server-three:1234``
+
+## Actions
+
+### Create Object
+
+This action will create a new object in Riak. You would need to specify bucket
+where you would like to store your object. This action uses no mapper so
+you would need to prepare the data as following.
+
+```json
+{
+    "body": {
+        ...
+    }
+}
+```
+
+In this case ``body`` will be stored in Riak and key will be auto-generated.
+If ``message`` looks like this:
+```json
+{
+    "body": {
+        "key": "value",
+        ...
+    }
+}
+```
+
+Then ``key`` out of ``body`` will be used as key and full body will be stored in Riak.
+If you message looks like this:
+
+```json
+{
+    "body": {
+        "key": "value",
+        "value": {
+        ...
+        }
+    }
+}
+```
+Then ``key`` and ``value`` will be used as expected :)
 
 ## Known issues
 
