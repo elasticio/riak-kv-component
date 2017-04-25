@@ -4,9 +4,10 @@
   "credentials": {
     "fields": {
       "name": {
-        "label": "My API Key",
+        "label": "Nodes",
         "required": true,
-        "viewClass": "TextFieldView"
+        "viewClass": "TextFieldWithNoteView",
+        "note": "Comma-separated values like `riak-test:10017,riak-test2:10027`"
       }
     }
   }

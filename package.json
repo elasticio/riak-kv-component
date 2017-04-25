@@ -19,11 +19,12 @@
     "elasticio-component"
   ],
   "dependencies": {
+    "basho-riak-client": "^2.4.0",
     "co": "^4.6.0",
-    "request": "^2.75.0",
-    "request-promise": "^4.1.1",
+    "elasticio-node": "0.0.8",
     "elasticio-sailor-nodejs": "2.1.0",
-    "elasticio-node": "0.0.8"
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1"
   },
   "scripts": {
     "pretest": "node_modules/.bin/eslint lib spec Gruntfile.js --ext .json --ext .js --fix",
