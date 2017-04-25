@@ -1,26 +1,25 @@
 'use strict';
-const co = require('co');
-const rp = require('request-promise');
+const Riak = require('basho-riak-client');
 
-// This function will be called by the platform to verify credentials
-module.exports = function verifyCredentials(credentials, cb) {
-  console.log('Credentials passed for verification %j', credentials);
-
-  co(function*() {
-    console.log('Fetching user information');
-
-    const test = yield rp({
-      uri: 'https://cdn.elastic.io/test.json',
-      json: true
+module.exports = function verifyCredentials(credentials) {
+    console.log('Credentials passed for verification %j', credentials);
+    const nodes = credentials.nodes.split(',');
+    return new Promise((ok, nok) => {
+        new Riak.Client(nodes, function (err, client) {
+            if (err) {
+                console.error('Connection failed');
+                return nok(err);
+            }
+            console.log('Connection established');
+            client.ping(function (err, result) {
+                if (err) {
+                    console.error('Ping failed');
+                    return nok(err);
+                } else {
+                    console.log('Ping successful result=%j', result);
+                    ok(result);
+                }
+            });
+        });
     });
-
-    console.log('Fetched JSON value=%j', test);
-
-    console.log('Verification completed');
-
-    cb(null, {verified: true});
-  }).catch(err => {
-    console.log('Error occurred', err.stack || err);
-    cb(err , {verified: false});
-  });
 };

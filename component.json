@@ -3,7 +3,7 @@
   "description": "Integration component that communicates with Riak Key-Value Store",
   "credentials": {
     "fields": {
-      "name": {
+      "nodes": {
         "label": "Nodes",
         "required": true,
         "viewClass": "TextFieldWithNoteView",
