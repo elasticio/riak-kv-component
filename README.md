@@ -35,16 +35,9 @@ $ git push elasticio master
 
 ## Authentication
 
-Authentication is happening via OAuth2.0. In order to make OAuth work you need a new App in your XXX. 
-During app creation process you will be asked to specify
-the callback URL, to process OAuth auehtncation via elastic.io platform your callback URL should be 
+Connection to Riak cluster is established based on the comma-separated list of nodes
 
-```
-https://your-tenant.elastic.io/callback/oauth2
-```
-
-If you are testing it on default public tenant just use ``https://app.elastic.io/callback/oauth2``
-
+``server-one:1234,server-two:1234,server-three:1234``
 
 ## Configure OAuth Client key/secret
 
