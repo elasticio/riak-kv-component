@@ -39,13 +39,6 @@ Connection to Riak cluster is established based on the comma-separated list of n
 
 ``server-one:1234,server-two:1234,server-three:1234``
 
-## Configure OAuth Client key/secret
-
-In the component repository you need to specify OAuth Client credentials as environment variables. You would need two variables
-
- * ```XXX_KEY``` - your OAuth client key
- * ```XXX_SECRET``` - your OAUth client secret
- 
 ## Known issues
 
 No known issues are there yet.
