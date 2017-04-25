@@ -15,7 +15,16 @@
     "createObject": {
       "title": "Create Object",
       "main": "./lib/actions/createObject.js",
-      "description": "Description for Create Object",
+      "description": "Creates an object in Riak KV bucket, you would need a bucket name, key and the value",
+      "fields": {
+        "bucket": {
+          "label": "Bucket Name",
+          "required": true,
+          "viewClass": "TextFieldView",
+          "placeholder": "my-bucket",
+          "note": "Please don't use whitespaces in the bucket name"
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/createObject.in.json",
         "out": "./lib/schemas/createObject.out.json"
