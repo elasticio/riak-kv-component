@@ -1,0 +1,47 @@
+{
+  "name": "riak-kv-component",
+  "version": "0.0.0",
+  "description": "Integration component that communicates with Riak Key-Value Store",
+  "homepage": "https://www.elastic.io",
+  "author": {
+    "name": "elastic.io GmbH",
+    "email": "info@elastic.io",
+    "url": "https://www.elastic.io"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "ipaas",
+    "riak",
+    "elasticio",
+    "elasticio-component"
+  ],
+  "dependencies": {
+    "co": "^4.6.0",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1",
+    "elasticio-sailor-nodejs": "2.1.0",
+    "elasticio-node": "0.0.8"
+  },
+  "scripts": {
+    "pretest": "node_modules/.bin/eslint lib spec Gruntfile.js --ext .json --ext .js --fix",
+    "test": "NODE_ENV=test grunt"
+  },
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-xo-space": "^0.15.0",
+    "eslint-plugin-json": "^1.2.0",
+    "grunt": "^1.0.1",
+    "grunt-jasmine-node": "^0.3.1"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "elasticio/riak-kv-component",
+  "license": "Apache-2.0"
+}
